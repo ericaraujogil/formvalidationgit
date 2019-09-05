@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/main.css">
+	<title>Hello, world!</title>
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script>
+		function validateForm() {
+			var name = document.forms["contactform"]["contactname"].value;
+			var lastname = document.forms["contactform"]["contactlastname"].value;
+			var email = document.forms["contactform"]["contactemail"].value;
+			var subject = document.forms["contactform"]["contactsubject"].value;
+			var theme = document.forms["contactform"]["contactselect"].value;
+			var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+
+			if (name != "" && name.length > 3) {
+				event.preventDefault();
+				if (document.forms["contactform"]["contactname"].classList.contains("is-invalid")) {
+					document.forms["contactform"]["contactname"].classList.remove("is-invalid")
+				}
+				document.forms["contactform"]["contactname"].classList.add("is-valid")
+			}
+			if (name == "" || name.length <= 3) {
+				event.preventDefault();
+				if (document.forms["contactform"]["contactname"].classList.contains("is-valid")) {
+					document.forms["contactform"]["contactname"].classList.remove("is-valid")
+				}
+				document.forms["contactform"]["contactname"].classList.add("is-invalid")
+			}
+			if (lastname != "") {
+				event.preventDefault();
+				if (document.forms["contactform"]["contactlastname"].classList.contains("is-invalid")) {
+					document.forms["contactform"]["contactlastname"].classList.remove("is-invalid")
+				}
+				document.forms["contactform"]["contactlastname"].classList.add("is-valid")
+			}
+			if (lastname == "") {
+				event.preventDefault();
+				if (document.forms["contactform"]["contactlastname"].classList.contains("is-valid")) {
+					document.forms["contactform"]["contactlastname"].classList.remove("is-valid")
+				}
+				document.forms["contactform"]["contactlastname"].classList.add("is-invalid")
+			}
+			if (email == "" || !re.test(email)) {
+				event.preventDefault();
+				if (document.forms["contactform"]["contactemail"].classList.contains("is-valid")) {
+					document.forms["contactform"]["contactemail"].classList.remove("is-valid")
+				}
+				document.forms["contactform"]["contactemail"].classList.add("is-invalid")
+			}
+
+			if (email != "" || re.test(email)) {
+				event.preventDefault();
+				if (document.forms["contactform"]["contactemail"].classList.contains("is-invalid")) {
+					document.forms["contactform"]["contactemail"].classList.remove("is-invalid")
+				}
+				document.forms["contactform"]["contactemail"].classList.add("is-valid")
+			}
+			if (subject != "") {
+				event.preventDefault();
+				if (document.forms["contactform"]["contactsubject"].classList.contains("is-invalid")) {
+					document.forms["contactform"]["contactsubject"].classList.remove("is-invalid")
+				}
+				document.forms["contactform"]["contactsubject"].classList.add("is-valid")
+			}
+			if (subject == "") {
+				event.preventDefault();
+				if (document.forms["contactform"]["contactsubject"].classList.contains("is-valid")) {
+					document.forms["contactform"]["contactsubject"].classList.remove("is-valid")
+				}
+				document.forms["contactform"]["contactsubject"].classList.add("is-invalid")
+			}
+			if (theme != "") {
+				event.preventDefault();
+				if (document.forms["contactform"]["contactselect"].classList.contains("is-invalid")) {
+					document.forms["contactform"]["contactselect"].classList.remove("is-invalid")
+				}
+				document.forms["contactform"]["contactselect"].classList.add("is-valid")
+			}
+			if (theme == "") {
+				event.preventDefault();
+				if (document.forms["contactform"]["contactselect"].classList.contains("is-valid")) {
+					document.forms["contactform"]["contactselect"].classList.remove("is-valid")
+				}
+				document.forms["contactform"]["contactselect"].classList.add("is-invalid")
+			}
+
+			if(document.forms["contactform"]["contactname"].classList.contains("is-valid") && document.forms["contactform"]["contactlastname"].classList.contains("is-valid") && document.forms["contactform"]["contactemail"].classList.contains("is-valid") && document.forms["contactform"]["contactsubject"].classList.contains("is-valid") && document.forms["contactform"]["contactselect"].classList.contains("is-valid")){
+				document.getElementById('validation').submit();
+			}
+
+		}
+
+	</script>
+</head>
+
+<body>
+	<div class="container maincontainer">
+		<div class="row">
+			<div class="col-md-12">
+				<h3 class="form-heading tituloform">Contact form</h3>
+				<div class="row register-form">
+					<div class="col-md-12">
+						<form method="post" id="validation" class="needs-validation" name="contactform" novalidate>
+							<div class="form-group">
+								<input type="text" name="contactname" id="contactname" class="form-control" placeholder="Insert your name..." required />
+								<div class="valid-feedback">
+									All good
+								</div>
+								<div class="invalid-feedback">
+									You must write a name
+								</div>
+							</div>
+
+							<div class="form-group">
+								<input type="text" name="contactlastname" class="form-control" placeholder="Insert your last name..." required />
+								<div class="valid-feedback">
+									All good
+								</div>
+								<div class="invalid-feedback">
+									You must write a lastname
+								</div>
+							</div>
+
+							<div class="form-group">
+								<input type="email" name="contactemail" class="form-control" placeholder="example@gmail.com" required />
+								<div class="valid-feedback">
+									All good
+								</div>
+								<div class="invalid-feedback">
+									You must write a valid email
+								</div>
+							</div>
+							<div class="form-group">
+							<select class="custom-select" name="contactselect" required>
+								<option value="">Select one of the following options...</option>
+								<option value="1">Trabajo</option>
+								<option value="2">Evento</option>
+								<option value="3">Otros</option>
+							</select>
+							<div class="invalid-feedback">Choose an option</div>
+							</div>
+							<div class="form-group">
+								<label class="h5" for="contactsubject">Write a message...</label>
+								<textarea class="form-control" id="contactsubject" rows="3" name="contactsubject" required></textarea>
+								<div class="valid-feedback">
+									All good
+								</div>
+								<div class="invalid-feedback">
+									You must write a message
+								</div>
+							</div>
+							<div class="form-group">
+								<input type="submit" name="Contactosub" class="btnContactSubmit" onclick="validateForm()" />
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

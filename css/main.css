@@ -1,0 +1,23 @@
+.maincontainer {
+    background: -webkit-linear-gradient(right, #E85658, #FFD272);
+    margin-top: 3%;
+    padding: 3%;
+    border-radius: 2.5rem;
+}
+
+.tituloform {
+    color: black;
+}
+
+.form-new {
+    margin-right: 22%;
+    margin-left: 20%;
+}
+
+.nav-tabs .nav-link.active {
+    background-color: transparent;
+}
+
+.nav-tabs .nav-link {
+    color: black;
+}
